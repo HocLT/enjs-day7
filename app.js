@@ -9,7 +9,13 @@ var usersRouter = require("./routes/users");
 var customerRouter = require("./routes/customer");
 
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://quang:123@localhost:27017/demo");
+// mongoose.connect("mongodb://quang:123@localhost:27017/demo");
+mongoose
+  .connect(
+    "mongodb+srv://sadmin:A123a123@customerdb.61aoc.mongodb.net/?retryWrites=true&w=majority&appName=customerdb"
+  )
+  .then(() => console.log("connnected to db"))
+  .catch((err) => console.log("Error: " + err));
 
 var app = express();
 

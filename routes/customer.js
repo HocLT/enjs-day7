@@ -18,11 +18,13 @@ const upload = multer({ storage: diskStorage });
 /* GET home page. */
 router.get("/", async (req, res) => {
   const customers = await customerModel.find();
-  res.render("customer/index", { title: "Customer List", customers });
+  res.render("customer/index", { title: "Customer List Demo", customers });
 });
 
 router.get("/search", async (req, res) => {
-  const customers = await customerModel.find({email: new RegExp(req.query.keyword)});
+  const customers = await customerModel.find({
+    email: new RegExp(req.query.keyword),
+  });
   res.render("customer/index", { title: "Customer List", customers });
 });
 
